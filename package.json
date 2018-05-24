@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "yarn test:base --watch",
-    "test:base": "NODE_ENV=test jest -i --verbose",
+    "test:base": "NODE_ENV=test jest -i --no-cache --verbose",
     "dev": "node server.js",
     "build": "next build",
     "start": "next start"
@@ -29,6 +29,8 @@
     "@zeit/next-typescript": "^1.0.0",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^23.0.0",
+    "babel-preset-env": "^2.0.0-alpha.20",
+    "babel-preset-react": "^6.24.1",
     "chromedriver": "^2.38.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",

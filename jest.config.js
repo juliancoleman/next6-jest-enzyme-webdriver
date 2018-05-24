@@ -18,17 +18,21 @@ module.exports = {
     "js",
     "json"
   ],
+  moduleNameMapper: {
+    "^.+\\.tsx?$": "ts-jest",
+  },
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
   testEnvironment: "node",
   globals: {
     "ts-jest": {
-      useBabelrc: true
+      skipBabel: true
+      // useBabelrc: true
     }
   },
   testPathIgnorePatterns: [
     '<rootDir>/.next/', '<rootDir>/node_modules/'
   ],
-  setupTestFrameworkScriptFile: "<rootDir>/setupTests.js"
+  setupFiles: ["<rootDir>/setupTests.js"]
 };

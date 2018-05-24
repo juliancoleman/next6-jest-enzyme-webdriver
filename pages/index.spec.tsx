@@ -1,7 +1,7 @@
 import { mount, shallow } from "enzyme";
 import fs from "fs";
 // import R from "ramda";
-import React from "react";
+import * as React from "react";
 
 // import filterInt from "../helpers/filterInt";
 // import webdriver from "../helpers/next-webdriver";
