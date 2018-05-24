@@ -33,38 +33,6 @@ yarn dev
 
 ## Run Jest tests
 
-Before running the test suite and after you've run `yarn`
-to install all dependencies, you will need to head over to
-`node_modules/next/dist/server/build/webpack.js` and
-comment out the following at or around line 125:
-
-```ts
-if (err) {
-  return callback();
-} // Default pages have to be transpiled
-```
-
-> [Related issue](https://github.com/zeit/next.js/issues/4227)
->
-> [Answer](https://github.com/zeit/next.js/issues/4227#issuecomment-386709519)
->
-> [Resolution](https://github.com/zeit/next.js/issues/4227#issuecomment-386773316)
->
-> _TL;DR:_
->
-> ```
-> Plugin 0 specified in "/node_modules/next/babel.js"
-> provided an invalid property of "default" (While processing preset: ...
-> ```
->
-> _this project's dependencies are using a
-> combination of Babel 6 and 7 (Next uses 7, Jest uses 6)._
-
-
-This issue may be resolved in the future, but for now, do
-this. Once you've commented out the block, go ahead and run
-the following:
-
 ```bash
 npm run test
 # or
