@@ -1,19 +1,18 @@
-const { createServer } = require("http");
-const next = require('next');
-const R = require("ramda");
+import { createServer } from "http";
+import * as next from "next";
+import { defaultTo } from "ramda";
 
-const routes = require('./routes');
-
-const filterInt = require("./helpers/filterInt");
+import filterInt from "./helpers/filterInt";
+import Router from "./router";
 
 const PORT = 3000;
-const defaultPort = R.defaultTo(PORT);
+const defaultPort = defaultTo(PORT);
 const port = defaultPort(filterInt(process.env.PORT));
 
 const dev = process.env.NODE_ENV !== "production";
 
 const app = next({ dev });
-const handle = routes.getRequestHandler(app);
+const handle = Router.getRequestHandler(app);
 
 function startServer() {
   const conn = createServer(handle);
