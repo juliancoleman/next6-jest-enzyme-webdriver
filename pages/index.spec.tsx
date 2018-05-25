@@ -1,7 +1,3 @@
-/**
- * @jest-environment jest-environment-webdriver
- */
-
 import { mount, shallow } from "enzyme";
 import { writeFileSync } from "fs";
 import { defaultTo } from "ramda";

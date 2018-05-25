@@ -24,7 +24,7 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
-  testEnvironment: "node",
+  testEnvironment: "jest-environment-webdriver",
   globals: {
     "ts-jest": {
       skipBabel: true
