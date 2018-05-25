@@ -6,7 +6,7 @@ export default function(port: number, path: string) {
     // host: "localhost",
     port: 9515,
     // path: "/",
-    services: ["chromedriver"],
+    // services: ["chromedriver"],
     desiredCapabilities: {
       browserName: "chrome",
       chromeOptions: {

@@ -1,16 +1,17 @@
 module.exports = {
   collectCoverageFrom: [
-    // "components/**/!(index).(js|ts)?(x)",
-    // "helpers/**/!(index).(js|ts)?(x)",
+    "components/**/!(index).(js|ts)?(x)",
+    "helpers/**/!(index).(js|ts)?(x)",
     "pages/**/*.(js|ts)?(x)"
   ],
   coverageDirectory: "coverage",
+  snapshotSerializers: ["enzyme-to-json/serializer"],
   testMatch: [
-    // "<rootDir>/components/**/?(*.)(spec|test).(js|ts)?(x)",
-    // "<rootDir>/helpers/**/?(*.)(spec|test).(js|ts)?(x)",
+    "<rootDir>/components/**/?(*.)(spec|test).(js|ts)?(x)",
+    "<rootDir>/helpers/**/?(*.)(spec|test).(js|ts)?(x)",
     "<rootDir>/pages/**/?(*.)(spec|test).(js|ts)?(x)"
   ],
-  // reporters: process.env.CI ? undefined : ["jest-spec-reporter"],
+  reporters: process.env.CI ? undefined : ["jest-spec-reporter"],
   rootDir: ".",
   moduleFileExtensions: [
     "ts",

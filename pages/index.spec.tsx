@@ -22,6 +22,7 @@ describe("Index page", () => {
       const wrapper = shallow(<Index />);
 
       expect(wrapper.exists()).toBe(true);
+      expect(wrapper).toMatchSnapshot();
     });
 
     it("contains a single h1", () => {
@@ -30,7 +31,7 @@ describe("Index page", () => {
       expect(wrapper.find("h1")).toHaveLength(one);
     });
 
-    describe("#render", () => {
+    describe("#render()", () => {
       it("is called only once", () => {
         const spy = jest.spyOn(Index.prototype, "render");
         mount(<Index />);
