@@ -1,7 +1,7 @@
 module.exports = {
   collectCoverageFrom: [
-    "components/**/!(index).(js|ts)?(x)",
-    "helpers/**/!(index).(js|ts)?(x)",
+    // "components/**/!(index).(js|ts)?(x)",
+    // "helpers/**/!(index).(js|ts)?(x)",
     "pages/**/*.(js|ts)?(x)"
   ],
   coverageDirectory: "coverage",
@@ -16,7 +16,7 @@ module.exports = {
     "ts",
     "tsx",
     "js",
-    "json"
+    "json",
   ],
   moduleNameMapper: {
     "^.+\\.tsx?$": "ts-jest",
@@ -34,5 +34,5 @@ module.exports = {
   testPathIgnorePatterns: [
     '<rootDir>/.next/', '<rootDir>/node_modules/'
   ],
-  setupFiles: ["<rootDir>/setupTests.js"]
+  setupTestFrameworkScriptFile: "<rootDir>/setupTests.js"
 };

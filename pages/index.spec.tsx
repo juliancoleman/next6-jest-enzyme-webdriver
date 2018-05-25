@@ -1,21 +1,26 @@
-import { mount, shallow } from "enzyme";
-import fs from "fs";
-// import R from "ramda";
-import * as React from "react";
+/**
+ * @jest-environment jest-environment-webdriver
+ */
 
-// import filterInt from "../helpers/filterInt";
+import { mount, shallow } from "enzyme";
+import { writeFileSync } from "fs";
+import { defaultTo } from "ramda";
+import * as React from "react";
+import "webdriverio";
+
+import Index from ".";
+import filterInt from "../helpers/filterInt";
 // import webdriver from "../helpers/next-webdriver";
 
-import Index from "./index";
-
-// const PORT: number = 3000;
-// const defaultPort = R.defaultTo(PORT);
-// const port: number = defaultPort(filterInt(process.env.PORT));
+const PORT: number = 3000;
+const defaultPort = defaultTo(PORT);
+const port: number = defaultPort(filterInt(process.env.PORT));
+const url = `http://localhost:3000/`;
 
 const one: number = 1;
 const once: number = 1;
 
-// let screenshot;
+let screenshot;
 
 describe("Index page", () => {
   describe("<Index />", () => {
@@ -43,21 +48,15 @@ describe("Index page", () => {
     });
   });
 
-  // describe("clicking <Link route='error403' />", () => {
-  //   it("should navigate to the error403 page", async () => {
-  //     const browser = webdriver(port, "/");
+  it("renders a single h1", async () => {
+    // const browser = webdriver(port, "/");
+    await browser.get(url);
 
-  //     screenshot = await browser.saveScreenshot();
-  //     await fs.writeFileSync("./screenshots/index.png", screenshot);
+    // screenshot = await browser.saveScreenshot();
+    // await writeFileSync("./screenshots/index.png", screenshot);
 
-  //     await browser.click("a");
+    expect(await browser.findElement(by.tagName("h1")).getText()).toBe("Index page");
 
-  //     screenshot = await browser.saveScreenshot();
-  //     await fs.writeFileSync("./screenshots/error403.png", screenshot);
-
-  //     expect(new URL(await browser.getUrl()).pathname).toBe("/403");
-
-  //     await browser.end();
-  //   });
-  // });
+    browser.close();
+  });
 });

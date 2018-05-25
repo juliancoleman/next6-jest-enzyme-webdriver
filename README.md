@@ -31,6 +31,12 @@ yarn
 yarn dev
 ```
 
+and then:
+
+```bash
+brew cask install chromedriver
+```
+
 ## Run Jest tests
 
 ```bash
