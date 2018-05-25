@@ -2,16 +2,14 @@ import { mount, shallow } from "enzyme";
 import { writeFileSync } from "fs";
 import { defaultTo } from "ramda";
 import * as React from "react";
-import "webdriverio";
 
 import Index from ".";
 import filterInt from "../helpers/filterInt";
-// import webdriver from "../helpers/next-webdriver";
+import webdriver from "../helpers/next-webdriver";
 
 const PORT: number = 3000;
 const defaultPort = defaultTo(PORT);
 const port: number = defaultPort(filterInt(process.env.PORT));
-const url = `http://localhost:3000/`;
 
 const one: number = 1;
 const once: number = 1;
@@ -45,13 +43,12 @@ describe("Index page", () => {
   });
 
   it("renders a single h1", async () => {
-    // const browser = webdriver(port, "/");
-    await browser.get(url);
+    const browser = webdriver(port, "/");
 
-    // screenshot = await browser.saveScreenshot();
-    // await writeFileSync("./screenshots/index.png", screenshot);
+    screenshot = await browser.saveScreenshot();
+    await writeFileSync("./screenshots/index.png", screenshot);
 
-    expect(await browser.findElement(by.tagName("h1")).getText()).toBe("Index page");
+    expect(await browser.getText("h1")).toBe("Index page");
 
     browser.close();
   });
